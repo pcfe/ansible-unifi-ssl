@@ -4,13 +4,13 @@
     path: /etc/init.d/unifi
   register: unifi_stat
 
-- include: unifi.yml
+- ansible.builtin.include_tasks: unifi.yml
   when: (unifi_stat.stat.exists)
 
-- include: certificate-check.yml
+- ansible.builtin.include_tasks: certificate-check.yml
   when: (unifi_stat.stat.exists)
 
-- include: common.yml
+- ansible.builtin.include_tasks: common.yml
   when: (unifi_stat.stat.exists) and (not certificate_match)
 
 - name: Check if Unifi-Video
@@ -18,11 +18,11 @@
     path: /etc/init.d/unifi-video
   register: unifi_video_stat
 
-- include: unifi-video.yml
+- ansible.builtin.include_tasks: unifi-video.yml
   when: (unifi_video_stat.stat.exists)
 
-- include: certificate-check.yml
+- ansible.builtin.include_tasks: certificate-check.yml
   when: (unifi_video_stat.stat.exists)
 
-- include: common.yml
+- ansible.builtin.include_tasks: common.yml
   when: (unifi_video_stat.stat.exists) and (not certificate_match)
