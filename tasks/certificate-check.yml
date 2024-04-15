@@ -1,8 +1,8 @@
 ---
 - name: Register new certificate fingerprint
   ansible.builtin.command: |
-    openssl x509 -noout 
-    -in {{ crt_full_path }} 
+    openssl x509 -noout
+    -in {{ crt_full_path }}
     -fingerprint -sha1
   register: cmd_new_fingerprint
 

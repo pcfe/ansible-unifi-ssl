@@ -26,9 +26,9 @@
 
 - name: Delete the previous certificate data from keystore to avoid "already exists" message
   ansible.builtin.command: |
-    keytool -delete 
-    -alias {{ unifi_alias }} 
-    -keystore {{ keystore }} 
+    keytool -delete
+    -alias {{ unifi_alias }}
+    -keystore {{ keystore }}
     -deststorepass {{ keystore_password }}
 - name: Import the temp PKCS12 file into the UniFi keystore
   ansible.builtin.command: |
@@ -41,7 +41,7 @@
     -alias {{ unifi_alias }} -trustcacerts
 - name: Import the certificate authority data into the UniFi keystore
   ansible.builtin.command: |
-    java -jar {{ java_dir }}/lib/ace.jar 
+    java -jar {{ java_dir }}/lib/ace.jar
     import_cert {{ crt_full_path }} {{ intermediate_full_path }}
   when: service_name == "unifi"
 
