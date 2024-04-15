@@ -1,7 +1,7 @@
 ---
 - name: Check if Unifi
-  stat:
-    path: "/etc/init.d/unifi"
+  ansible.builtin.stat:
+    path: /etc/init.d/unifi
   register: unifi_stat
 
 - include: unifi.yml
@@ -14,8 +14,8 @@
   when: (unifi_stat.stat.exists) and (not certificate_match)
 
 - name: Check if Unifi-Video
-  stat:
-    path: "/etc/init.d/unifi-video"
+  ansible.builtin.stat:
+    path: /etc/init.d/unifi-video
   register: unifi_video_stat
 
 - include: unifi-video.yml
