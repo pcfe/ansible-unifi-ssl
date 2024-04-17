@@ -5,8 +5,8 @@ on:
 jobs:
   lint:
     name: Ansible Lint # Naming the build is important to use it as a status check
-    runs-on: ubuntu-latest
+    runs-on: debian-latest
     steps:
       - uses: actions/checkout@v4
       - name: Run ansible-lint
-        uses: ansible/ansible-lint@v6
+        uses: ansible/ansible-lint@main
