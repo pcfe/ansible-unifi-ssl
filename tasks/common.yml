@@ -21,6 +21,7 @@
     -CAfile {{ intermediate_full_path }}
     -out {{ p12_temp.path }} -passout pass:{{ keystore_password }}
     -caname root -name {{ unifi_alias }}
+
 - name: Stop service
   ansible.builtin.service:
     name: "{{ service_name }}"
@@ -32,6 +33,7 @@
     -alias {{ unifi_alias }}
     -keystore {{ keystore }}
     -deststorepass {{ keystore_password }}
+
 - name: Import the temp PKCS12 file into the UniFi keystore
   ansible.builtin.command: |
     keytool -importkeystore
@@ -41,6 +43,7 @@
     -deststorepass {{ keystore_password }}
     -destkeypass {{ keystore_password }}
     -alias {{ unifi_alias }} -trustcacerts
+
 - name: Import the certificate authority data into the UniFi keystore
   ansible.builtin.command: |
     java -jar {{ java_dir }}/lib/ace.jar
