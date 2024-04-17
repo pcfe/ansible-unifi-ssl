@@ -27,7 +27,3 @@ galaxy_info:
     - ubiquiti
     - unifi-video
     - https
-
-galaxy_info:
-role_name: my_name  # if absent directory name hosting role is used instead
-namespace: my_galaxy_namespace  # if absent, author is used instead
