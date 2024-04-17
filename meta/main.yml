@@ -3,7 +3,7 @@ dependencies: []
 
 galaxy_info:
   author: Ben Dews
-  role_name: unifi-ssl
+  role_name: unifi_ssl
   namespace: bendews
   description: Deploy SSL Certificates to Unifi and Unifi-Video Controllers
   license: MIT
