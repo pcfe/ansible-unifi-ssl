@@ -4,6 +4,7 @@
   ansible.builtin.copy:
     src: "{{ keystore }}"
     dest: "{{ keystore }}.{{ ansible_date_time.epoch }}.bak"
+    mode: u=rw
     remote_src: true
 
 - name: Create temporary P12 file
