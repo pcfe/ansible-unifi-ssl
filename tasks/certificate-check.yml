@@ -5,11 +5,13 @@
     -in {{ crt_full_path }}
     -fingerprint -sha1
   register: cmd_new_fingerprint
+  changed_when: cmd_new_fingerprint.rc != 0
 
 - name: Register existing certificate fingerprint
   ansible.builtin.command: |
     keytool -list -keystore {{ keystore }} -storepass {{ keystore_password }}
   register: cmd_old_fingerprint
+  changed_when: cmd_old_fingerprint.rc != 0
 
 - name: Set vars related to cert fingerprints
   ansible.builtin.set_fact:
