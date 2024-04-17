@@ -8,7 +8,7 @@ jobs:
   lint:
     runs-on: debian-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Lint Ansible Playbook
         # main is just an example, use any valid ref
         uses: ansible/ansible-lint-action@main
