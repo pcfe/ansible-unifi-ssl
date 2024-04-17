@@ -3,6 +3,8 @@ dependencies: []
 
 galaxy_info:
   author: Ben Dews
+  role_name: unifi-ssl
+  namespace: bendews
   description: Deploy SSL Certificates to Unifi and Unifi-Video Controllers
   license: MIT
   min_ansible_version: "1.2"
@@ -25,3 +27,7 @@ galaxy_info:
     - ubiquiti
     - unifi-video
     - https
+
+galaxy_info:
+role_name: my_name  # if absent directory name hosting role is used instead
+namespace: my_galaxy_namespace  # if absent, author is used instead
