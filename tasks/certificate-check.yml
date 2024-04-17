@@ -11,13 +11,15 @@
     keytool -list -keystore {{ keystore }} -storepass {{ keystore_password }}
   register: cmd_old_fingerprint
 
-- ansible.builtin.set_fact:
+- name: Set vars related to cert fingerprints
+  ansible.builtin.set_fact:
     certificate_match: false
     new_fingerprint: "{{ cmd_new_fingerprint.stdout | regex_search(regexp) }}"
     old_fingerprint: "{{ cmd_old_fingerprint.stdout | regex_findall(regexp) }}"
   vars:
     regexp: (?:[0-9a-fA-F]{2}:){19}[0-9a-fA-F]{2}
 
-- ansible.builtin.set_fact:
+- name: Set var that certs match if new one was listed in keytool list
+  ansible.builtin.set_fact:
     certificate_match: true
   when: new_fingerprint in old_fingerprint
