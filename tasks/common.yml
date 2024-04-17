@@ -1,3 +1,4 @@
+# code: language=ansible
 ---
 - name: Make backup of KeyStore
   ansible.builtin.copy:

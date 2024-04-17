@@ -1,3 +1,4 @@
+# code: language=ansible
 ---
 - name: Register new certificate fingerprint
   ansible.builtin.command: |
