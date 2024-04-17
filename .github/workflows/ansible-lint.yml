@@ -1,7 +1,5 @@
 name: ansible-lint
-on:
-  pull_request:
-    branches: ["main", "master"]
+on: [push, pull_request]
 jobs:
   lint:
     name: Ansible Lint # Naming the build is important to use it as a status check
